@@ -1,4 +1,4 @@
-A bash implementation of the cat command.
+A bash implementation of the `cat` command.
 
     Usage: cat.sh [OPTION]... [FILE]...
     Concatenate FILE(s) to standard output.
