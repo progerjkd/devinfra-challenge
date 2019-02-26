@@ -1,4 +1,4 @@
-
+# My Service
 The `After=network.target syslog.target` option, configures the execution order of the service.
 
 With `Restart=always` option enabled, the service shall be restarted when the service process exits, is killed, or a timeout is reached with the exception of a normal stop by the `systemctl stop` command. By default, systemd attempts a restart after 100ms.
@@ -15,3 +15,12 @@ The `RestartSec` directive also has an impact on the outcome: if it is set to re
 A simple fix is to set `StartLimitIntervalSec=0`. This way, systemd will attempt to restart the service uninterruptedly.
 
 It’s a good idea to set `RestartSec` to at least 1 second though, to avoid putting too much stress on the server when things start going wrong.
+
+## Daemon example
+The daemon.php file is a small server using PHP used as example daemon for this question. It will listen to UDP port 10000, and return any message received with a [ROT13](https://en.wikipedia.org/wiki/ROT13) transformation.
+
+Testing it:
+
+    $ netcat -u localhost 10000
+    Super secret message.
+    Fhcre frperg zrffntr.
