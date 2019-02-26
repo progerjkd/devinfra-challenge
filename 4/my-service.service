@@ -1,0 +1,16 @@
+[Unit]
+Description=My Service
+After=network.target syslog.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+PIDFile=/run/my-service.pid
+ExecStart=/usr/bin/env php '/home/roger/MEGA/Job Applications/dunnhumby/dunnhumby challenge/4/server.php'
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s TERM $MAINPID
+
+[Install]
+WantedBy=multi-user.target
