@@ -28,4 +28,4 @@ def log_reader(logfile):
 
 
 if __name__ == '__main__':
-    log_reader("error.log")
+    log_reader('/var/log/app.log')
