@@ -24,9 +24,10 @@ On the client host:
 On the Nagios server:
 
  - Create a new service definition file `/usr/local/nagios/etc/services/service monitoring.cfg` and assign the Nagios client to its `host_name` parameter:
+ -
+ a
 
-
-    `define service {
+    define service {
         host_name              client.example.org
         service_description    Check service error rate
         use                    generic-service
@@ -36,7 +37,7 @@ On the Nagios server:
         check_period           24x7
         notification_period    24x7
         register               1
-    }`
+    }
 
  - Restart the Nagios server:
 `systemctl restart nagios`
