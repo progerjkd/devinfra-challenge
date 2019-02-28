@@ -36,7 +36,7 @@ On the Nagios server:
         check_period           24x7
         notification_period    24x7
         register               1
-    }
+    }`
 
  - Restart the Nagios server:
 `systemctl restart nagios`
