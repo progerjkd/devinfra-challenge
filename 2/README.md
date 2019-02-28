@@ -5,7 +5,7 @@ Error rate is reported via a log file which is written every 30 seconds.
 The log file has the following format:
 
     <YYYY-MM-DD hh:mm:ss> - conn: <C>, proc: <P>, err: <E>, val: <V>
-    
+
 Where all `<C>, <P>, <E>, <V>` are integers and `<E>` is the error rate per second. Let's say the log file is stored in /var/log/app.log.
 
 ## Instructions
@@ -24,9 +24,9 @@ On the client host:
 On the Nagios server:
 
  - Create a new service definition file `/usr/local/nagios/etc/services/service monitoring.cfg` and assign the Nagios client to its `host_name` parameter:
- 
 
-    define service {
+
+    `define service {
         host_name              client.example.org
         service_description    Check service error rate
         use                    generic-service
@@ -37,9 +37,6 @@ On the Nagios server:
         notification_period    24x7
         register               1
     }
-    
+
  - Restart the Nagios server:
-`systemctl restart nagios` 
-
-
-
+`systemctl restart nagios`
