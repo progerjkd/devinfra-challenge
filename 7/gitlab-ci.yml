@@ -1,0 +1,20 @@
+stages:
+  - checkout
+  - test
+
+checkout job:
+  stage: checkout
+  variables:
+    GIT_STRATEGY: clone
+    GIT_CHECKOUT: "false"
+  script:
+    - REPO_URL=""
+    - git clone $REPO_URL
+  artifacts:
+    expire_in: 30 days
+
+Run the tests:
+  stage: test
+  script:
+    - docker build -t my-image .
+    - docker run my-image python3 -m unittest
